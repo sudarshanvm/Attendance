@@ -55,7 +55,7 @@
  			<a href="add.php" class="btn btn-success">Add Student</a>
  			<a href="view.php" class="btn btn-info pull-right">View past attendance</a>
  		</h2>
-
+ 		
 
  		<!-- display the current date -->
  		<h3><div class="text-center">Date: <?php echo date("d/m/Y"); ?></div></h3>	
