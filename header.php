@@ -56,19 +56,19 @@
         					</h4>
         				</div>
        					<div class="modal-body">
-        					<form class="form-horizontal" action="login.php?q=index.php" method="POST">
+        					<form class="form-horizontal" action="login.php" method="POST">
         						<fieldset>
         							<div class="form-group">
       									<label class="col-md-3 control-label" for="username"></label>  
         								<div class="col-md-6">
-       		 								<input id="username" name="username" placeholder="emailid" class="form-control input-md" type="username">
+       		 								<input id="username" name="username" placeholder="email id" class="form-control input-md" type="username">
 
 								        </div>
         							</div>
         							<div class="form-group">
         								<label class="col-md-3 control-label" for="password"></label>
         								<div class="col-md-6">
-        									<input id="password" name="password" placeholder="Enter your Password" class="form-control input-md" type="password">
+        									<input id="password" name="password" placeholder="Password" class="form-control input-md" type="password">
 
         								</div>
         							</div>
@@ -85,5 +85,8 @@
         </div>
     </div>
 </div>
+
+
+
 </body>
 </html>

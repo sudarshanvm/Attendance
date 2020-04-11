@@ -9,7 +9,7 @@
  	<div class="panel panel-heading">
  		<h2>
  			<a href="add.php" class="btn btn-success">Add Student</a>
- 			<a href="index.php" class="btn btn-info pull-right">Go back</a>
+ 			<a href="index1.php" class="btn btn-info pull-right">Go back</a>
  		</h2>
 
 

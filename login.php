@@ -1,28 +1,38 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<?php
+    session_start();
 
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+    if (isset($_SESSION["username"])) 
+    {
+        session_destroy();
+    }
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
+    include_once 'connection.php';
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
+    $username = stripslashes($username);
+    $username = addslashes($username);
+    $password = stripslashes($password);
+    $password = addslashes($password);
+   
+    $result = mysqli_query($con, "SELECT * FROM teacher_login WHERE email = '$username' and password = '$password'") or die('Error');
+   
+    $count = mysqli_num_rows($result);
+  
+    if ($count == 1) {
+        while ($row = mysqli_fetch_array($result)) {
+            $name = $row['usn'];
+                $username=$row['name'];
+                $password = $row['password'];
+        }
+        $_SESSION["name"]     = $name;
+        $_SESSION["username"] = $username;
+        $_SESSION["password"] = $password;
 
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
+        header("location:index.php");
+        echo "logged in successfully!";
+    } else
+        echo "error logging in.";
 
-  </div>
-</div>
+
+// ?>
