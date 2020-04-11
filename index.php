@@ -38,7 +38,7 @@
  	<div class="panel panel-heading">
  		<h2>
  			<a href="add.php" class="btn btn-success">Add Student</a>
- 			<a href="#view.php" class="btn btn-info pull-right">View All Students</a>
+ 			<a href="view.php" class="btn btn-info pull-right">View past attendance</a>
  		</h2>
 
 
