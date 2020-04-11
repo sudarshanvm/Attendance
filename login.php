@@ -29,7 +29,7 @@
         $_SESSION["username"] = $username;
         $_SESSION["password"] = $password;
 
-        header("location:index.php");
+        header("location:index1.php");
         echo "logged in successfully!";
     } else
         echo "error logging in.";
