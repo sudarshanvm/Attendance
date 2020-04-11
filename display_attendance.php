@@ -29,7 +29,10 @@
  					<?php 
  						//$result=mysqli_query($con,);
  						$newDate = date("Y-m-d", strtotime($_POST[date])); 
- 						$sql="select * from attendance where date=$newDate";
+ 						
+ 						//this query to be generalized
+ 						$sql= "select * from attendance where date='2020-04-11'";
+;
 						$result=mysqli_query($con,$sql);
 						if($res)
 							echo "Success!";
@@ -55,7 +58,7 @@
  					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
  					 		<?php if($row['status']=="present") echo "checked=checked"; ?> value="present">present
  					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
- 					 		<?php if($row['status']=="absent") echo "checked=checked"; ?> value="absent">pbsent
+ 					 		<?php if($row['status']=="absent") echo "checked=checked"; ?> value="absent">absent
  					 		
  					 	</td>
 

@@ -3,21 +3,49 @@
 	include("header.php");
 	include("connection.php");
 
+	$flag=0;
+	$update=0;
 	if(isset($_POST['submit']))
 	{
-		foreach($_POST['attendance_status'] as $id=>$attendance_status)
+		
+		//attendance update feature to be added
+		// $current_date=date("Y-m-d");
+		// $records=mysqli_query($con,"select * from attendance where date='$current_date'");
+
+		// $num_records=mysqli_num_rows($records);
+
+		// if($num_records)
+		// {
+		// 	foreach($_POST['attendance_status'] as $id=>$attendance_status)
+		// 	{
+
+		// 		$student_name=$_POST['names'][$id];
+		// 		$student_usn=$_POST['usns'][$id];
+			
+		// 		$sql="update attendance set name='$student_name', usn='$student_usn', status='$attendance_status',date='$current_date' where date='$current_date'";
+		// 		$res=mysqli_query($con,$sql);
+		// 		if($res)
+		// 			$update=1;
+		// 		else
+		// 			echo"Error: could not update to the database." . mysqli_error($con);
+		// 	}
+
+		}
+		else
 		{
+			foreach($_POST['attendance_status'] as $id=>$attendance_status)
+			{
 
-			$student_name=$_POST['names'][$id];
-			$student_usn=$_POST['usns'][$id];
-			$current_date=date("Y-m-d H:i:s");
-
-			$sql="insert into attendance(name,usn,status,date) values ('$student_name','$student_usn','$attendance_status','$current_date')";
-			$res=mysqli_query($con,$sql);
-			if($res)
-				$flag=1;
-			else
-				echo"Error: could not add student to the database." . mysqli_error($con);
+				$student_name=$_POST['names'][$id];
+				$student_usn=$_POST['usns'][$id];
+			
+				$sql="insert into attendance(name,usn,status,date) values ('$student_name','$student_usn','$attendance_status','$current_date')";
+				$res=mysqli_query($con,$sql);
+				if($res)
+					$flag=1;
+				else
+					echo"Error: could not add to the database." . mysqli_error($con);
+			}
 		}
 
 	}
@@ -32,6 +60,12 @@
  	<?php if($flag) { ?>
  	<div class="alert alert-success">
  		<strong>Attendance submitted successfully!</strong>	
+ 	</div>
+ 	<?php } ?>
+
+ 	<?php if($update) { ?>
+ 	<div class="alert alert-success">
+ 		<strong>Attendance updated successfully!</strong>	
  	</div>
  	<?php } ?>
 
@@ -78,8 +112,12 @@
  					 	<input type="hidden" name="names[]" value="<?php echo $row['name'] ?>">
  					 	
  					 	<td>
- 					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" value="present">Present
- 					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" value="absent">Absent
+ 					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
+ 					 		<?php if(isset($_POST['attendance_status'][$count])&&$_POST['attendance_status'][$count]=="present") echo "checked=checked";
+ 					 		?> value="present" checked="checked" required>Present
+ 					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
+ 					 		<?php if(isset($_POST['attendance_status'][$count])&&$_POST['attendance_status'][$count]=="absent") echo "checked=checked";
+ 					 		?> value="absent" required>Absent
  					 	</td>
 
  					 </tr
