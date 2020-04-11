@@ -4,41 +4,22 @@
 	include("connection.php");
 
 	$flag=0;
-	$update=0;
+	//$update=0;
 	if(isset($_POST['submit']))
 	{
 		
+		
+		// <div class="alert alert-success">
+ 	// 		<strong>Attendance already taken \for today!</strong>	
+ 	// 	</div>;
 		//attendance update feature to be added
-		// $current_date=date("Y-m-d");
-		// $records=mysqli_query($con,"select * from attendance where date='$current_date'");
-
-		// $num_records=mysqli_num_rows($records);
-
-		// if($num_records)
-		// {
-		// 	foreach($_POST['attendance_status'] as $id=>$attendance_status)
-		// 	{
-
-		// 		$student_name=$_POST['names'][$id];
-		// 		$student_usn=$_POST['usns'][$id];
-			
-		// 		$sql="update attendance set name='$student_name', usn='$student_usn', status='$attendance_status',date='$current_date' where date='$current_date'";
-		// 		$res=mysqli_query($con,$sql);
-		// 		if($res)
-		// 			$update=1;
-		// 		else
-		// 			echo"Error: could not update to the database." . mysqli_error($con);
-		// 	}
-
-		}
-		else
-		{
+		
 			foreach($_POST['attendance_status'] as $id=>$attendance_status)
 			{
 
 				$student_name=$_POST['names'][$id];
 				$student_usn=$_POST['usns'][$id];
-			
+				$current_date=date("Y-m-d");
 				$sql="insert into attendance(name,usn,status,date) values ('$student_name','$student_usn','$attendance_status','$current_date')";
 				$res=mysqli_query($con,$sql);
 				if($res)
@@ -46,9 +27,9 @@
 				else
 					echo"Error: could not add to the database." . mysqli_error($con);
 			}
-		}
-
 	}
+
+	
 
 
  ?>
@@ -81,6 +62,7 @@
 
 
  		<div class="panel panel-body">
+ 			<p style='color:red' class="pull-right"><strong>By default all are marked present, select the students who are absent and submit.</strong></p>
  			<form action="index.php" method="post">
 
  				<table class="table table-striped">
@@ -128,6 +110,8 @@
  					  ?>
 
 				</table>
+				<br>
+				<br>
 				<input type="submit" name="submit" value="submit" class="btn btn-primary pull-right">
  			</form>
  		</div>
