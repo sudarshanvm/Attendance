@@ -27,7 +27,14 @@
 					</tr>
  					
  					<?php 
- 						$result=mysqli_query($con,"select * from attendance where date=$_POST[date]");
+ 						//$result=mysqli_query($con,);
+ 						$newDate = date("Y-m-d", strtotime($_POST[date])); 
+ 						$sql="select * from attendance where date=$newDate";
+						$result=mysqli_query($con,$sql);
+						if($res)
+							echo "Success!";
+						else
+							echo"Error: could not display the results!" . mysqli_error($con);
  						$sn=0;
  						$count=0;
  						while($row=mysqli_fetch_array($result))
@@ -46,9 +53,9 @@
  					 	
  					 	<td>
  					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
- 					 		<?php if($row['status']=="present") echo "checked=checked"?> value="present">Present
+ 					 		<?php if($row['status']=="present") echo "checked=checked"; ?> value="present">present
  					 		<input type="radio" name="attendance_status[<?php echo $count; ?>]" 
- 					 		<?php if($row['status']=="absent") echo "checked=checked"?> value="absent">Absent
+ 					 		<?php if($row['status']=="absent") echo "checked=checked"; ?> value="absent">pbsent
  					 		
  					 	</td>
 

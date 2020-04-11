@@ -39,7 +39,7 @@
  					 	<td> <?php echo $row['date'] ?> </td>
  					 	<td>
  					 		<form action="display_attendance.php" method="post">
- 					 		<input type="hidden" value="<?php echo $row['date'] ?>" name="date">
+ 					 		<input type="hidden" value="<?php echo $row['date']; ?>" name="date">
  					 		<input type="submit" class="btn btn-primary" value="show attendance" >
  					 		</form>
  					 	</td>
