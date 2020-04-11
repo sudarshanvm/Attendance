@@ -19,7 +19,7 @@
  			<form action="display_attendance.php" method="POST">
  				<div class="form-group">
  					<label for="query">Enter a MySQL-query: </label>
- 					<input type="text" placeholder="SELECT * FROM attendance WHERE date='yyyy-mm-dd'" name="query" id="query" class="form-control" required>
+ 					<input type="text" placeholder="SELECT * FROM attendance WHERE date= 'yyyy-mm-dd' " name="query" id="query" class="form-control" required>
  				</div>
     			<div class="form-group">
  					<input type="submit" name="submit" value="submit" class="btn btn-primary" required>
