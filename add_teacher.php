@@ -2,13 +2,13 @@
 
 	include("header.php");
 	include("connection.php");
-
+	
 	// if form is submitted
 	if(isset($_POST['submit']))
 	{
 
 		$password=md5($_POST[password]);
-		$sql="insert into teacher_login(teacher_name,gender,email,password) values ('$_POST[t_name]','$_POST[gender]','$_POST[email]','$password')";
+		$sql="insert into teacher_login(teacher_name,gender,subject,email,password) values ('$_POST[t_name]','$_POST[gender]','$_POST[subject]','$_POST[email]','$password')";
 		$res=mysqli_query($con,$sql);
 		if($res)
 		{
@@ -48,6 +48,10 @@
  			<div class="form-group">
  				<label for="gender">Gender</label>
  				<input type="text" name="gender" id="gender" class="form-control" required>
+ 			</div>
+			<div class="form-group">
+ 				<label for="subject">Subject</label>
+ 				<input type="text" name="subject" id="subject" class="form-control" required>
  			</div>
  			<div class="form-group">
  				<label for="Email">Email</label>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ISE Attendance</title>
+	<title>Admin- ISE Attendance</title>
 
 	 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -28,42 +28,212 @@
 
 
 <!-- header  -->
-<body >
-    <!-- header start -->
-    <div class="header">
-        <div class="row">
-       		<div class="col-lg-6">
-        		<span class="logo">ISE Attendance Management</span>
-        	</div>
-        
-<?php 
+<body  style="background:#fff;">
+	<div class="header">
+		<div class="row">
+			<div class="col-lg-6">
+				<span class="logo">ISE Attendance Management</span>
+			</div>
 
-	include("connection.php");
-
-	//include_once 'databaseCon.php';
-	session_start();
-	if (!(isset($_SESSION['username']))  || ($_SESSION['key']) != '54585c506829293a2d4c3b68543b316e2e7a2d277858545a36362e5f39') 
-	{
-	     session_destroy();
-	     header("location:index.php");
-	} 
-	else 
-	{
-	     $name     = $_SESSION['name'];
-	     $username = $_SESSION['username'];
-	    
-	     echo '<span class="pull-right top title1" ><span style="color:white"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <span class="log log1" style="color:lightyellow">' . $name . '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php?q=account.php" style="color:lightyellow"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout</button></a></span>';
-	 }
-
- ?>
+        <!-- verify admin login and display logout button -->
+	<?php
+		include_once 'connection.php';
+		session_start();
+		if (!(isset($_SESSION['username']))  || ($_SESSION['key']) != '54585c506829293a2d4c3b68543b316e2e7a2d277858545a36362e5f39') {
+		    session_destroy();
+		    header("location:index.php");
+		} else {
+		    $name     = $_SESSION['name'];
+		    $username = $_SESSION['username'];
+		    
+		    include_once 'connection.php';
+		    echo '<span class="pull-right top title1" ><span style="color:white"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <span class="log log1" style="color:lightyellow">' . $username . '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php?q=account.php" style="color:lightyellow"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout</button></a></span>';
+		}
+	?>
+		</div>	
+	</div>
 
 
     </div>
 </div>
 
 
+
+<!-- 
+Navigation bar -->
+
+<nav class="navbar navbar-default title1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="dash.php?q=0"><b>Dashboard</b></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li <?php
+				if (@$_GET['q'] == 0)
+   					echo 'class="active"';
+			?>>
+		<a href="dash.php?q=0">Home<span class="sr-only">(current)</span></a></li>
+       
+        <li <?php
+				if (@$_GET['q'] == 1)
+    				echo 'class="active"';
+			?>>
+		<a href="dash.php?q=1">Add Teacher</a></li>
+    	
+    	<li <?php
+				if (@$_GET['q'] == 2)
+  					echo 'class="active"';
+			?>>
+		<a href="dash.php?q=2">Add Student</a></li>
+        
+        <li <?php
+				if (@$_GET['q'] == 3)
+  					echo 'class="active"';
+			?>>
+		<a href="dash.php?q=4">View Teachers List</a></li>
+       
+        <li <?php
+				if (@$_GET['q'] == 4)
+  					echo 'class="active"';
+			?>>
+		<a href="dash.php?q=5">View Students List</a></li>
+
+		<li <?php
+				if (@$_GET['q'] == 5)
+  					echo 'class="active"';
+			?>>
+		<a href="dash.php?q=5">View Students Attendance</a></li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+
+		<?php 
+			if(@$_GET['q']==0)
+			{
+				echo "<style type='text/css'>
+		 	
+						.center 
+						{
+						  display: block;
+						  margin-left: auto;
+						  margin-right: auto;
+						  width: 50%;
+						}
+					 </style>
+					 <body style='background:#000;'>
+		 	
+					 <div class='container' style='background: #fff'>
+					  <div class='panel panel-default' style='background:#f2ffff;''>
+					  	<h2 style='text-align:center;'><strong>About ISE Department</strong></h2>
+					  	<br><br>
+					  	<img src='images/bg.jpg' alt='ISE Dept image' class='center' style='height:20%; width:50%;' >
+					    <div class='panel-body'>
+					    	<br><br><br>
+					    	<p>Department of Information Science and Engineering (ISE) at RVCE was established in the year 2000. The department offers Bachelor of Engineering (B.E.) programme through autonomous scheme and M.Tech. programmes in Software Engineering and Information Technology which has been granted autonomous status from the year 2016. The ISE UG and M. Tech. in Information Technology Programmes are accredited by NBA.</p>
+							<p>The department also offers Ph. D. degree in various specializations of Information Science, Software Engineering and related areas.  The areas of specialization in the department include Wireless Sensor Networks, Big Data Analytics, Image Processing, Software Engineering and Natural Language Processing.</p>
+
+					    </div>
+					  </div>
+					</div>
+					";
+
+			}
+
+		?> 
+<!-- home section completed -->
+
+
+<?php  
+	if(@$_GET['q']==1)
+	{
+		include("connection.php");
+		
+		// if form is submitted
+		if(isset($_POST['submit']))
+		{
+
+			$password=md5($_POST[password]);
+			$sql="insert into teacher_login(teacher_name,gender,subject,email,password) values ('$_POST[t_name]','$_POST[gender]','$_POST[subject]','$_POST[email]','$password')";
+			$res=mysqli_query($con,$sql);
+			if($res)
+			{
+				$flag=1;	
+			}
+			else
+			{
+				echo"Error: could not add teacher to the database." . mysqli_error($con);
+			}
+	  	}
+
+
+	}
+	
+	echo '<div class="panel panel-default">
+ 	
+ 	<?php if($flag) { ?>
+ 	<div class="alert alert-success">
+ 		<strong>Data insertion successful!</strong>	
+ 	</div>
+ 	<?php } ?>
+ 	
+ 	<div class="panel-heading">
+ 		<h2>
+ 		<a href="add_teacher.php" class="btn btn-success">Add Teacher</a>
+ 		<a href="dash.php" class="btn btn-info pull-right">Home</a>
+ 		</h2>	
+
+ 	</div>
+
+ 	<div class="panel-body">
+ 		<form action="add_teacher.php" method="post">
+ 			<div class="form-group">
+ 				<label for="t_name">Teacher Name</label>
+ 				<input type="text" name="t_name" id="t_name" class="form-control" required>
+ 			</div>
+ 			<div class="form-group">
+ 				<label for="gender">Gender</label>
+ 				<input type="text" name="gender" id="gender" class="form-control" required>
+ 			</div>
+ 			<div class="form-group">
+ 				<label for="subject">Subject</label>
+ 				<input type="text" name="subject" id="subject" class="form-control" required>
+ 			</div>
+ 			<div class="form-group">
+ 				<label for="Email">Email</label>
+ 				<input type="email" name="email" id="email" class="form-control" required>
+ 			</div>
+ 			<div class="form-group">
+ 				<label for="passwprd">Password</label>
+ 				<input type="password" name="password" id="password" class="form-control" required>
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="submit" name="submit" value="submit" class="btn btn-primary" required>
+ 			</div>
+ 		</form>
+ 	</div>
+ </div>';
+?>
+
+
+
 <!-- Admin Dashboard -->
- <div class="panel panel-default" >
+ <!-- <div class="panel panel-default" >
  		
  	<div class="panel-heading" >
  		<h2 style="text-align:center;">Dashboard</h2>
@@ -77,35 +247,8 @@
  		</h2>	
 
  	</div>
- </div>
+ </div> -->
 
- <style type="text/css">
- 	
-	.center 
-	{
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
-	  width: 50%;
-	}
-
- </style>
-
- <body style="background:#f2f2f2;">
- 	
- <div class="container" style="background: #f2f2f2;">
-  <div class="panel panel-default">
-  	<h2 style="text-align:center;"><strong>About ISE Department</strong></h2>
-  	<br><br>
-  	<img src="images/bg.jpg" alt="ISE Dept" class="center" style="height:20%; width:50%;" >
-    <div class="panel-body">
-    	<br><br><br>
-    	<p>Department of Information Science and Engineering (ISE) at RVCE was established in the year 2000. The department offers Bachelor of Engineering (B.E.) programme through autonomous scheme and M.Tech. programmes in Software Engineering and Information Technology which has been granted autonomous status from the year 2016. The ISE UG and M. Tech. in Information Technology Programmes are accredited by NBA.</p>
-		<p>The department also offers Ph. D. degree in various specializations of Information Science, Software Engineering and related areas.  The areas of specialization in the department include Wireless Sensor Networks, Big Data Analytics, Image Processing, Software Engineering and Natural Language Processing.</p>
-
-    </div>
-  </div>
-</div>
-
+ 
 	
  </body>

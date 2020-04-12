@@ -2,7 +2,7 @@
 
 	include("header.php");
 	include("connection.php");
-
+	include("login_check.php");
 
  ?>
 

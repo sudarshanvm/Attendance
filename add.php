@@ -3,6 +3,8 @@
 	include("header.php");
 	include("connection.php");
 
+
+
 	// if form is submitted
 	if(isset($_POST['submit']))
 	{
@@ -22,6 +24,12 @@
 	
  ?>
 
+
+
+
+
+
+
  <div class="panel panel-default">
  	
  	<?php if($flag) { ?>
@@ -33,7 +41,7 @@
  	<div class="panel-heading">
  		<h2>
  		<a href="add.php" class="btn btn-success">Add Student</a>
- 		<a href="index.php" class="btn btn-info pull-right">Go back</a>
+ 		<a href="index1.php" class="btn btn-info pull-right">Go back</a>
  		</h2>	
 
  	</div>
@@ -51,14 +59,6 @@
  			<div class="form-group">
  				<input type="submit" name="submit" value="submit" class="btn btn-primary" required>
  			</div>
-
-
  		</form>
-
-
-
  	</div>
-
-
-
  </div>

@@ -17,7 +17,8 @@
 
 	include("header.php");
 	include("connection.php");
-
+	include("login_check.php");
+	
 	$flag=0;
 	//$update=0;
 	if(isset($_POST['submit']))
