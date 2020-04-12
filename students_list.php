@@ -1,8 +1,8 @@
+
+<!-- This file is used by both teachers and the admin to view the list of all the students of ISE -->
 <?php 
 
-	include("header.php");
 	include("connection.php");
-	include("login_check.php");
 
  ?>
 
@@ -11,11 +11,6 @@
 
  	<div class="panel panel-heading">
  		<h2 style="text-align:center">ISE Students List</h2>
-
- 		<h2>
- 		<a href="add.php" class="btn btn-success">Add Student</a>
- 		<a href="dash.php" class="btn btn-info pull-right">Home</a>
- 		</h2>	
 
  		<div class="panel panel-body">
  				<table class="table table-striped">
@@ -26,12 +21,7 @@
  					</tr>
  					
  					<?php 
- 						//$result=mysqli_query($con,);
  						
-	 						//$newDate = $_POST['Date']); 
-	 						//$newDate='2020-04-11';
-	 						//this query to be generalized
-	 						//$sql= "select * from attendance where date='$newDate'";
 							$sql="select * from student";
 							$result=mysqli_query($con,$sql) or die('error!');
 							if($result)
@@ -62,8 +52,7 @@
 	 					 
 	 					  ?>
 
-					</table>
-					
+				</table>					
  		</div>
  	</div>
  </div>

@@ -1,32 +1,31 @@
+
+<!-- Used by both admin and the ISE teachers to view attendance by selecting a particular date -->
+
 <?php 
-	include("header.php");
 	include("connection.php");
-	include("login_check.php");
- ?>
+?>
 
 
  <div class="panel panel-default">
 
- 	<div class="panel panel-heading">
- 		<h2>
- 			<a href="add.php" class="btn btn-success">Add Student</a>
- 			<a href="index1.php" class="btn btn-info pull-right">Go back</a>
- 		</h2>
+ 	<div class="panel panel-heading" style="background:#f2ffff">
+ 		<h2 align="center">View Past Attendance</h2>
 
 
  		<div class="panel panel-body">
  			<!-- <form action="index.php" method="post">
  -->
- 			<form action="display_attendance.php" method="POST">
+ 			<form action="dash.php?q=6" method="POST">
  				<div class="form-group">
- 					<label for="query">Enter a MySQL-query: </label>
- 					<input type="text" placeholder="SELECT * FROM attendance WHERE date= 'yyyy-mm-dd' " name="query" id="query" class="form-control" required>
+ 					 <label for="query">Enter a MySQL-query: </label>
+ 					<input type="text"  value="SELECT * FROM attendance WHERE date= '2020-04-11' and subject like 'Database%'" id="query" name="query" class="form-control" required>
+
+
  				</div>
     			<div class="form-group">
  					<input type="submit" name="submit" value="submit" class="btn btn-primary" required>
  				</div>
 			</form>
-
 
  				<table class="table table-striped">
  					<tr>
@@ -65,8 +64,15 @@
  					 	}
  					  ?>
 
-				</table>
-			
+			</table>
  		</div>
  	</div>
  </div>
+</table>
+</div>
+</div>
+</div>
+<!--  -->
+
+
+

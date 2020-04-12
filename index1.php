@@ -15,19 +15,12 @@
 
 <?php 
 
-	include("header.php");
 	include("connection.php");
-	include("login_check.php");
 	
 	$flag=0;
-	//$update=0;
 	if(isset($_POST['submit']))
 	{
 		
-		
-		// <div class="alert alert-success">
- 	// 		<strong>Attendance already taken \for today!</strong>	
- 	// 	</div>;
 		//attendance update feature to be added
 		
 			foreach($_POST['attendance_status'] as $id=>$attendance_status)
@@ -36,7 +29,10 @@
 				$student_name=$_POST['names'][$id];
 				$student_usn=$_POST['usns'][$id];
 				$current_date=date("Y-m-d");
-				$sql="insert into attendance(name,usn,status,date) values ('$student_name','$student_usn','$attendance_status','$current_date')";
+				// $subject=mysqli_query($con,"select subject from teacher_login where email='padmashreet@rvce.edu.in'");
+				$subject="Database Management Systems";
+				$sql="insert into attendance(name,usn,status,subject,date) values ('$student_name','$student_usn','$attendance_status','$subject','$current_date')";
+
 				$res=mysqli_query($con,$sql);
 				if($res)
 					$flag=1;
@@ -70,8 +66,8 @@
 
  	<div class="panel panel-heading">
  		<h2>
- 			<a href="add.php" class="btn btn-success">Add Student</a>
- 			<a href="view.php" class="btn btn-info pull-right">View past attendance</a>
+ 			<a href="dash.php?q=2" class="btn btn-success">Add Student</a>
+ 			<a href="dash.php?q=5" class="btn btn-info pull-right">View past attendance</a>
  		</h2>
 
 
@@ -80,8 +76,8 @@
 
 
  		<div class="panel panel-body">
- 			<p style='color:red' class="pull-right"><strong>By default all are marked present, select the students who are absent and submit.</strong></p>
- 			<form action="index.php" method="post">
+ 			<p style="color:red" class="pull-right"><strong>By default all are marked present, select the students who are absent and submit.</strong></p>
+ 			<form action="index1.php" method="post">
 
  				<table class="table table-striped">
  					<tr>

@@ -1,24 +1,20 @@
+
+<!-- This file is used by both the teachers and the admin to view the attendance of the students datewise -->
 <?php 
-
-	include("header.php");
 	include("connection.php");
-	include("login_check.php");
-
- ?>
 
 
+?>
+
+
+ 
+<!-- Display students' attendance -->
  <div class="panel panel-default">
 
- 	<div class="panel panel-heading">
- 		<h2>
- 			<a href="add.php" class="btn btn-success">Add Student</a>
- 			
- 			<a href="view.php" class="btn btn-info pull-right">Go back</a>
- 		</h2>
+ 	<div class="panel panel-heading" style="background:#f2ffff">
+ 		<h2 align="center">Attendance</h2>
 
-
-
- 		<div class="panel panel-body">
+ 		<div class="panel panel-body" >
  				<table class="table table-striped">
  					<tr>
  					<th>ID</th>
@@ -28,14 +24,16 @@
 					</tr>
  					
  					<?php 
- 						//$result=mysqli_query($con,);
+ 						
  						if(isset($_POST['submit']))
  						{
-	 						//$newDate = $_POST['Date']); 
+	 						//$d = $_POST[dt]);
+
 	 						//$newDate='2020-04-11';
 	 						//this query to be generalized
-	 						//$sql= "select * from attendance where date='$newDate'";
+	 						//$sql= "select * from attendance where ";
 							$sql=$_POST['query'];
+							//$sql=$sql . "and subject like " . $_POST['subject'] . "%";
 							$result=mysqli_query($con,$sql) or die('error!');
 							if($result)
 								echo "";
@@ -73,9 +71,9 @@
 	 					 }
 	 					  ?>
 
-					</table>
-					
+				</table>
  		</div>
  	</div>
  </div>
+<!-- students' attendance Displayed -->
 
