@@ -13,15 +13,17 @@
       include("header.php");
       include("connection.php");
    ?>
-
+   
   </head>
 
 <body >
    
 <!-- mid form start -->
-<div class="bg1"></div>
-<!-- mid form end -->
-
+  <!-- <div class="bg1"></div>
+ --><!-- mid form end -->
+      <p class="rvcelogo">
+       <img src="images/logo.jpeg" align="center">
+      </p>
 
 <?php 
     include("footer.php");

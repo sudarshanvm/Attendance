@@ -37,10 +37,12 @@
         		<span class="logo">ISE Attendance Management</span>
         	</div>
         
-        	<div class="col-md-2 col-md-offset-4">
+        	<div class="col-md-50 col-md-offset-2">
         
         <!-- modalform -->
-        	<a href="#" class="btn btn-primary logb"  data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1" align:right><b> Teacher Login </b> </span></a>
+        	<a href="#" class="btn btn-primary logb pull-right"  data-toggle="modal" data-target="#login"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1" ><b> Admin Login </b> </span></a>
+
+          <a href="#" class="btn btn-primary logb pull-right"  data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1" align:right><b> Teacher Login </b> </span></a>
 
         	</div>
 

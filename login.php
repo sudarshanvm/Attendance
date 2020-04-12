@@ -14,7 +14,7 @@
     $username = addslashes($username);
     $password = stripslashes($password);
     $password = addslashes($password);
-   
+    $password= md5($password);
     $result = mysqli_query($con, "SELECT * FROM teacher_login WHERE email = '$username' and password = '$password'") or die('Error');
    
     $count = mysqli_num_rows($result);
