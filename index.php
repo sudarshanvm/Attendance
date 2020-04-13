@@ -119,9 +119,33 @@
 <!-- mid form start -->
   <!-- <div class="bg1"></div>
  --><!-- mid form end -->
-      <p class="rvcelogo">
-       <img src="images/logo.jpeg" align="center">
-      </p>
+      <!-- <h2 align="center">Project: <strong>Attendance Management System For ISE, RVCE</strong></h2> -->
+      <div class="panel panel-heading" style="background:#ffffff">
+      <h2 align="center"><strong>Attendance Management System For ISE</strong></h2>
+
+      <div class="panel panel-body" >
+        <p><b>Team members:</b></p>
+        <table class="table table-striped" align="center">
+          <tr>
+          <th>Name</th>
+          <th>USN</th>
+          </tr>
+
+          <tr>
+            <td>SUDARSHAN</td><td>1RV17IS049</td>
+          </tr>
+          <tr>
+            <td>SHREYAS S</td><td>1RV17IS042</td>
+          </tr>
+          <tr>
+            <td>ROHITH S YADAV</td><td>1RV17IS033</td>
+          </tr>
+          <tr>
+            <td>ABHA ANAND</td><td>1RV17IS001</td>
+          </tr>
+        </table>
+          
+
 
 <?php 
     include("footer.php");
