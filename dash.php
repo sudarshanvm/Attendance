@@ -82,11 +82,12 @@ Navigation bar -->
 			?>>
 		<a href="dash.php?q=0">Home<span class="sr-only">(current)</span></a></li>
        
+        
         <li <?php
 				if (@$_GET['q'] == 1)
     				echo 'class="active"';
 			?>>
-		<a href="dash.php?q=1">Add Teacher</a></li>
+		<?php if($username=='admin') echo'<a href="dash.php?q=1">Add Teacher</a>';?></li>
     	
     	<li <?php
 				if (@$_GET['q'] == 2)
@@ -119,7 +120,7 @@ Navigation bar -->
 				if (@$_GET['q'] == 7)
   					echo 'class="active"';
 			?>>
-		<a href="dash.php?q=7">Take attendance</a></li>
+		<?php if($username!='admin') echo'<a href="dash.php?q=7">Take attendance</a>'; ?></li>
 
 		<div class=".d-none">
 			<li <?php
