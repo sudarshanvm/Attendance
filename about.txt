@@ -1,1 +1,3 @@
-To be added!
+Attendance Management is important to every single organization.
+Student attendance management deals with the maintenance of the student’s attendance details.It generates the attendance of the student on basis of presence in class.It is maintained on the daily basis of their attendance .The teachers will be provided with the separate username and password to make the student’s status.
+The staff handling the particular subjects responsible to take the attendance for all students.Only if the student is present on that particular day ,the attendance  will be calculated. Teachers can view the list of students with their attendance status as present or absent for a given day.
